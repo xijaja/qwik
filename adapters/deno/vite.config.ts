@@ -5,7 +5,6 @@ import baseConfig from '../../vite.config';
 export default extendConfig(baseConfig, () => {
   return {
     build: {
-      outDir: 'build/server',
       ssr: true,
       rollupOptions: {
         input: ['src/entry.deno.ts', '@qwik-city-plan'],

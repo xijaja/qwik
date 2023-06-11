@@ -29,11 +29,12 @@ jobs:
         run: |
           npm i -g pnpm
           pnpm i
-          pnpm run build
+          pnpm build
  
       - name: Deploy to Deno Deploy 执行部署
         uses: denoland/deployctl@v1
         with:
           project: qwik   # 项目名称
           entrypoint: server/entry.deno.js
-          root: build
+          root: .
+          include: dist, server
