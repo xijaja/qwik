@@ -73,3 +73,15 @@ pnpm serve
 ```
 
 Then visit [http://localhost:8080/](http://localhost:8080/)
+
+## Deno Deploy
+
+```shell
+deployctl deploy \
+	--token ${DEPLOY_TOKEN} \
+	--project ${PROJECT_NAME} \
+	--include dist \
+	--include server \
+	--prod \
+	server/entry.deno.js
+```

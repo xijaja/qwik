@@ -31,6 +31,7 @@ jobs:
           pnpm i
           pnpm build
 
+      # 移动文件避免上传其他无用文件，这将使部署时间更快（感觉 include 有点问题才出此下策）
       - name: move dist and server 移动
         run: |
           mkdir build
