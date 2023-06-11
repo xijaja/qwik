@@ -37,4 +37,5 @@ jobs:
           project: qwik   # 项目名称
           entrypoint: server/entry.deno.js
           root: .
-          include: [dist, server]
+          include: dist
+          include: server
