@@ -37,3 +37,11 @@ lerna-debug.log*
 # Yarn
 .yarn/*
 !.yarn/releases
+
+
+# local
+.env
+.env.local
+*lock.yaml
+makefile
+todo.md
