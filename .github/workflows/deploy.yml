@@ -1,0 +1,39 @@
+name: Deploy
+ 
+on:
+  push:
+    branches:
+      - main # 当 main 分支有 push 事件时触发
+  pull_request:
+    branches:
+      - main # 当 main 分支有 pull request 事件时触发
+ 
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+ 
+    permissions:
+      id-token: write
+      contents: read
+ 
+    steps:
+      - name: Clone repository 克隆仓库
+        uses: actions/checkout@v3
+
+      # 这里用来设置环境变量，如果不需要，可以删除
+      # - name: Set secrets 设置密钥
+      #   run: |
+      #     echo "KEY=${{ secrets.KEY }}" >> $GITHUB_ENV
+ 
+      - name: Build project 构建项目
+        run: |
+          npm i -g pnpm
+          pnpm i
+          pnpm run build
+ 
+      - name: Deploy to Deno Deploy 执行部署
+        uses: denoland/deployctl@v1
+        with:
+          project: qwik   # 项目名称
+          entrypoint: entry.deno.js
+          root: server
