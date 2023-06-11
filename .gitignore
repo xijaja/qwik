@@ -42,6 +42,8 @@ lerna-debug.log*
 # local
 .env
 .env.local
+.vscode
+.idea
 *lock.yaml
 makefile
 todo.md
