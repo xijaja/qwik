@@ -33,6 +33,7 @@ jobs:
 
       - name: move dist and server 移动
         run: |
+          mkdir build
           mv dist build/dist
           mv server build/server
           cd build
